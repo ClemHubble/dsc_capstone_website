@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uncertainty Quantification in LLMs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            background: #111;
+            padding: 12px 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        .nav-title {
+            font-weight: bold;
+            margin-right: 30px;
+        }
+
+        section {
+            padding: 100px 10%;
+            min-height: 80vh;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 20px;
+        }
+
+        .hero {
+            background: #f4f4f4;
+            text-align: center;
+            padding-top: 140px;
+        }
+
+        .method-box {
+            border-left: 4px solid #4CAF50;
+            padding-left: 15px;
+            margin-bottom: 40px;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        details {
+            margin-top: 10px;
+        }
+
+        .team-member {
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#home" class="nav-title">LLM-UQ</a>
+    <a href="#home">Home</a>
+    <a href="#intro">Introduction</a>
+    <a href="#methods">Methods</a>
+    <a href="#results">Results</a>
+    <a href="#conclusion">Conclusion</a>
+    <a href="#team">Team</a>
+</nav>
+
+<!-- HERO / HOME -->
+<section id="home" class="hero">
+    <h1>Uncertainty Quantification in Large Language Models</h1>
+    <h3>Understanding Confidence Across Multiple-Choice, Open-Ended, and Active Reasoning Tasks</h3>
+
+    <p>
+        Fong Clement Vo • Brooklyn Pagaza • Pranav Singh • Calwin Li
+    </p>
+
+    <a href="https://github.com/ps1526/dsc_capstone_project" class="button">
+        View GitHub Repository
+    </a>
+</section>
+
+<!-- INTRODUCTION -->
+<section id="intro">
+    <h2>Introduction</h2>
+
+    <h3>Why Does LLM Uncertainty Matter?</h3>
+    <p>[Brief motivation paragraph placeholder]</p>
+
+    <h3>Problem Statement</h3>
+    <p>[What gap are we addressing?]</p>
+
+    <h3>Our Approach</h3>
+    <p>[Short overview of the four uncertainty methods]</p>
+</section>
+
+<!-- METHODS -->
+<section id="methods">
+    <h2>Methods</h2>
+
+    <h3>Datasets</h3>
+    <ul>
+        <li>Multiple Choice Benchmarks</li>
+        <li>Open-Ended Question Answering</li>
+        <li>Active Reasoning (AR-Bench)</li>
+    </ul>
+
+    <h3>Uncertainty Quantification Techniques</h3>
+
+    <div class="method-box">
+        <h4>Quantile Risk Control (QRC)</h4>
+        <p>[Top-quantile confidence evaluation]</p>
+    </div>
+
+    <div class="method-box">
+        <h4>Sampling with Perturbation (SPUQ)</h4>
+        <p>[Prompt perturbation and aggregation]</p>
+    </div>
+
+    <div class="method-box">
+        <h4>Bayesian LoRA (BLoB)</h4>
+        <p>[Weight sampling and predictive entropy]</p>
+    </div>
+
+    <div class="method-box">
+        <h4>Input Clarification Ensembling (ICE)</h4>
+        <p>[Clarification-based uncertainty decomposition]</p>
+    </div>
+
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+    <h2>Results</h2>
+
+    <h3>Calibration Performance</h3>
+    <p>[Placeholder for plots]</p>
+
+    <h3>Active Reasoning Analysis</h3>
+    <p>[Placeholder for AR-Bench results]</p>
+
+    <h3>Key Findings</h3>
+    <ul>
+        <li>[Finding 1]</li>
+        <li>[Finding 2]</li>
+        <li>[Finding 3]</li>
+    </ul>
+</section>
+
+<!-- CONCLUSION -->
+<section id="conclusion">
+    <h2>Conclusion</h2>
+
+    <p>[Impact and implications]</p>
+
+    <h3>Future Work</h3>
+    <ul>
+        <li>[Scaling to larger models]</li>
+        <li>[Improved calibration methods]</li>
+    </ul>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+    <h2>Team</h2>
+
+    <div class="team-member">
+        <h4>Fong Clement Vo</h4>
+        <p>Quantile Risk Control (QRC)</p>
+    </div>
+
+    <div class="team-member">
+        <h4>Brooklyn Pagaza</h4>
+        <p>Sampling with Perturbation (SPUQ)</p>
+    </div>
+
+    <div class="team-member">
+        <h4>Pranav Singh</h4>
+        <p>Bayesian LoRA (BLoB)</p>
+    </div>
+
+    <div class="team-member">
+        <h4>Calwin Li</h4>
+        <p>Input Clarification Ensembling (ICE)</p>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 DSC Capstone Project | UC San Diego
+</footer>
+
+</body>
+</html>
