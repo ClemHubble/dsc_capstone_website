@@ -1,267 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Uncertainty Quantification in LLMs</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Quantifying Uncertainty in Large Language Models</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    color: #222;
+}
 
-        nav {
-            position: fixed;
-            width: 100%;
-            background: #111;
-            padding: 12px 0;
-            z-index: 1000;
-        }
+nav {
+    position: fixed;
+    width: 100%;
+    background: #0b1e3d;
+    padding: 14px 0;
+    z-index: 1000;
+    text-align: center;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 14px;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 18px;
+    font-size: 14px;
+}
 
-        nav a:hover {
-            color: #4CAF50;
-        }
+nav a:hover {
+    color: #ffcd00;
+}
 
-        .nav-title {
-            font-weight: bold;
-            margin-right: 30px;
-        }
+section {
+    padding: 110px 10%;
+}
 
-        section {
-            padding: 100px 10%;
-            min-height: 80vh;
-        }
+.hero {
+    background: #f5f7fa;
+    text-align: center;
+    padding-top: 150px;
+}
 
-        h1, h2, h3 {
-            margin-bottom: 20px;
-        }
+h1, h2 {
+    margin-bottom: 20px;
+}
 
-        .hero {
-            background: #f4f4f4;
-            text-align: center;
-            padding-top: 140px;
-        }
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    background: #0b1e3d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
 
-        .method-box {
-            border-left: 4px solid #4CAF50;
-            padding-left: 15px;
-            margin-bottom: 40px;
-        }
+.button:hover {
+    background: #ffcd00;
+    color: black;
+}
 
-        footer {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+.placeholder {
+    background: #e0e0e0;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+    font-weight: bold;
+    color: #555;
+}
 
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 15px;
-            background: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+.method-box {
+    margin-bottom: 40px;
+}
 
-        .team-member {
-            margin-bottom: 20px;
-        }
-    </style>
+footer {
+    background: #0b1e3d;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+details {
+    margin-top: 10px;
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+</style>
 </head>
+
 <body>
 
 <nav>
-    <a href="#home" class="nav-title">LLM-UQ</a>
-    <a href="#home">Home</a>
-    <a href="#intro">Introduction</a>
-    <a href="#methods">Methods</a>
-    <a href="#results">Results</a>
-    <a href="#conclusion">Conclusion</a>
-    <a href="#team">Team</a>
+<a href="#home">Home</a>
+<a href="#problem">Why This Matters</a>
+<a href="#approach">Our Approach</a>
+<a href="#results">Results</a>
+<a href="#impact">Impact</a>
+<a href="#team">Team</a>
 </nav>
 
-<!-- HOME -->
+<!-- HERO -->
 <section id="home" class="hero">
-    <h1>Uncertainty Quantification in Large Language Models</h1>
-    <h3>Understanding Confidence Across Multiple-Choice, Open-Ended, and Active Reasoning Tasks</h3>
+<h1>Can We Trust AI When It Sounds Confident?</h1>
+<h3>Quantifying Uncertainty in Large Language Models</h3>
 
-    <p>
-        Fong Clement Vo • Brooklyn Pagaza • Pranav Singh • Calwin Li • Kening Li
-    </p>
+<p>
+Large language models often sound certain — even when they’re wrong.
+We study how to measure and improve their reliability.
+</p>
 
-    <a href="https://github.com/ps1526/dsc_capstone_project" class="button">
-        View GitHub Repository
-    </a>
+<a href="https://github.com/ps1526/dsc_capstone_project/tree/blob" class="button">
+View Code on GitHub
+</a>
+
+<a href="#" class="button">
+Full Report (Coming Soon)
+</a>
+
+<p>
+Fong Clement Vo • Brooklyn Pagaza • Pranav Singh • Calwin Li • Kening Li  
+UC San Diego – DSC Capstone 2026
+</p>
 </section>
 
-<!-- INTRODUCTION -->
-<section id="intro">
-    <h2>Introduction</h2>
+<!-- WHY THIS MATTERS -->
+<section id="problem">
+<h2>Why This Matters</h2>
 
-    <h3>Why Does LLM Uncertainty Matter?</h3>
-    <p>
-        Large Language Models (LLMs) are increasingly deployed in high-stakes settings such as healthcare,
-        finance, education, and policy analysis. Despite strong performance, their probabilistic nature means
-        that high confidence does not always imply correctness. Hallucinations, calibration errors, and
-        overconfident reasoning create real-world risks. Robust uncertainty estimation is therefore essential
-        for safe deployment.
-    </p>
+<p>
+AI systems like ChatGPT are increasingly used in education, healthcare,
+finance, and legal settings. But these models can confidently generate
+incorrect information — a phenomenon known as hallucination.
+</p>
 
-    <h3>Problem Statement</h3>
-    <p>
-        While many uncertainty quantification (UQ) techniques exist, most were designed for standard
-        classification tasks and have not been systematically evaluated across diverse LLM workloads.
-        In particular, it remains unclear how uncertainty behaves across:
-        (1) multiple-choice benchmarks,
-        (2) open-ended generation tasks, and
-        (3) multi-step active reasoning environments.
-    </p>
+<p>
+If AI is going to assist in high-stakes decisions, it must know when it might be wrong.
+Our project asks a simple but critical question:
+</p>
 
-    <h3>Our Approach</h3>
-    <p>
-        We conduct a unified empirical study of four complementary UQ methods:
-        Quantile Risk Control (QRC), Sampling with Perturbations (SPUQ),
-        Bayesian Low-Rank Adaptation (BLoB), and Input Clarification Ensembling (ICE).
-        We evaluate calibration, confidence concentration, and robustness across
-        multiple task formats and datasets.
-    </p>
+<h3>How can we measure how uncertain a language model really is?</h3>
+
+<div class="placeholder">
+[ Illustration: Overconfident AI vs Calibrated AI ]
+</div>
+
 </section>
 
-<!-- METHODS -->
-<section id="methods">
-    <h2>Methods</h2>
+<!-- APPROACH -->
+<section id="approach">
+<h2>Our Approach</h2>
 
-    <h3>Datasets</h3>
-    <ul>
-        <li><strong>Multiple Choice Benchmarks:</strong> ARC-Easy, ARC-Challenge, and OpenQA.</li>
-        <li><strong>Open-Ended Question Answering:</strong> TruthfulQA and TriviaQA.</li>
-        <li><strong>Active Reasoning (AR-Bench):</strong> Detective Cases, Situational Puzzles, and Guessing Numbers.</li>
-    </ul>
+<p>
+We evaluated four different uncertainty quantification techniques
+across three types of tasks:
+</p>
 
-    <h3>Uncertainty Quantification Techniques</h3>
+<ul>
+<li>✔ Multiple-choice question answering</li>
+<li>✔ Open-ended text generation</li>
+<li>✔ Multi-step reasoning problems</li>
+</ul>
 
-    <div class="method-box">
-        <h4>Quantile Risk Control (QRC)</h4>
-        <p>
-            QRC evaluates whether a model’s most confident predictions are truly reliable.
-            It analyzes the upper tail (top 10%) of the confidence distribution and reports:
-            QRC90 (accuracy within top 10%), CVaR90 (mean confidence in top quantile),
-            and EC90 (calibration error among high-confidence predictions).
-        </p>
-    </div>
+<h3>1. Quantile Risk Control (QRC)</h3>
+<div class="method-box">
+<p>
+Do a model’s most confident answers tend to be correct?
+QRC focuses on the top 10% most confident predictions
+and checks whether that confidence is justified.
+</p>
 
-    <div class="method-box">
-        <h4>Sampling with Perturbations (SPUQ)</h4>
-        <p>
-            SPUQ measures robustness by applying controlled perturbations to prompts
-            (paraphrasing, dummy tokens, system message changes).
-            Uncertainty is estimated by observing variability across perturbed responses.
-            Metrics include Expected Calibration Error (ECE), NLL, and Brier score.
-        </p>
-    </div>
+<details>
+<summary>Technical Details</summary>
+We compute QRC90 (accuracy among top 10%), CVaR90 (mean confidence),
+and EC90 (calibration error among high-confidence predictions).
+</details>
+</div>
 
-    <div class="method-box">
-        <h4>Bayesian LoRA (BLoB)</h4>
-        <p>
-            BLoB treats LoRA adapter weights as random variables with Gaussian or Laplace priors.
-            At inference time, multiple weight samples are drawn and predictive uncertainty
-            is estimated from output dispersion. This captures epistemic uncertainty
-            beyond deterministic decoding.
-        </p>
-    </div>
+<h3>2. Sampling with Perturbations (SPUQ)</h3>
+<div class="method-box">
+<p>
+What happens if we slightly rephrase the question?
+If the answer changes dramatically, the model may be uncertain.
+</p>
 
-    <div class="method-box">
-        <h4>Input Clarification Ensembling (ICE)</h4>
-        <p>
-            ICE generates clarification variants of a question, answers each independently,
-            and aggregates the variability across responses.
-            This decomposes uncertainty induced by ambiguity in natural language inputs
-            and provides calibration metrics including ECE and accuracy.
-        </p>
-    </div>
+<details>
+<summary>Technical Details</summary>
+We apply paraphrasing, dummy tokens, and system-message variations
+and measure variability across outputs.
+</details>
+</div>
+
+<h3>3. Bayesian LoRA (BLoB)</h3>
+<div class="method-box">
+<p>
+Instead of treating model weights as fixed,
+we treat them as probabilistic.
+This captures deeper uncertainty in the model’s parameters.
+</p>
+
+<details>
+<summary>Technical Details</summary>
+We sample LoRA adapter weights from Gaussian or Laplace distributions
+and measure predictive dispersion.
+</details>
+</div>
+
+<h3>4. Input Clarification Ensembling (ICE)</h3>
+<div class="method-box">
+<p>
+Sometimes uncertainty comes from ambiguity in the question itself.
+ICE generates clarification variants and aggregates the responses.
+</p>
+
+<details>
+<summary>Technical Details</summary>
+We measure variability across clarification-based responses
+and compute calibration metrics such as ECE.
+</details>
+</div>
 
 </section>
 
 <!-- RESULTS -->
 <section id="results">
-    <h2>Results</h2>
+<h2>Results</h2>
 
-    <h3>Calibration Performance</h3>
-    <p></p>
+<p>
+(Plots and quantitative findings will be added here.)
+</p>
 
-    <h3>Active Reasoning Analysis</h3>
-    <p></p>
+<div class="placeholder">
+[ Calibration Plot Placeholder ]
+</div>
 
-    <h3>Key Findings</h3>
-    <ul>
-    </ul>
+<div class="placeholder">
+[ Active Reasoning Performance Placeholder ]
+</div>
+
+<p>
+We will summarize key numerical findings once final evaluations are complete.
+</p>
+
 </section>
 
-<!-- CONCLUSION -->
-<section id="conclusion">
-    <h2>Conclusion</h2>
+<!-- IMPACT -->
+<section id="impact">
+<h2>Impact & Takeaways</h2>
 
-    <p>
-        Our study highlights a clear trade-off between accuracy and calibration
-        across uncertainty quantification techniques. Performance varies significantly
-        depending on task format, with multi-step active reasoning tasks exhibiting
-        greater instability than static QA benchmarks. Reliable uncertainty estimation
-        is therefore task-dependent and essential for safe deployment of LLMs.
-    </p>
+<p>
+Our experiments show that uncertainty behaves differently
+depending on the type of task.
+Models tend to be less calibrated in multi-step reasoning tasks
+compared to static question answering.
+</p>
 
-    <h3>Future Work</h3>
-    <ul>
-        <li>Extend evaluation to larger frontier models.</li>
-        <li>Model full multi-step reasoning pipelines instead of single-turn evaluation.</li>
-        <li>Develop computationally efficient Bayesian calibration techniques.</li>
-    </ul>
+<p>
+There is often a trade-off between accuracy and calibration —
+improving one can degrade the other.
+</p>
+
+<p>
+The key takeaway: reliable uncertainty estimation is essential
+before deploying language models in high-risk environments.
+</p>
+
 </section>
 
 <!-- TEAM -->
 <section id="team">
-    <h2>Team</h2>
+<h2>Meet the Team</h2>
 
-    <div class="team-member">
-        <h4>Fong Clement Vo</h4>
-        <p>Quantile Risk Control (QRC)</p>
-    </div>
+<p>
+This project was completed as part of the UC San Diego
+Data Science Capstone Program.
+</p>
 
-    <div class="team-member">
-        <h4>Brooklyn Pagaza</h4>
-        <p>Sampling with Perturbations (SPUQ)</p>
-    </div>
-
-    <div class="team-member">
-        <h4>Pranav Singh</h4>
-        <p>Bayesian LoRA (BLoB)</p>
-    </div>
-
-    <div class="team-member">
-        <h4>Calwin Li</h4>
-        <p>Input Clarification Ensembling (ICE)</p>
-    </div>
-
-    <div class="team-member">
-        <h4>Kening Li</h4>
-        <p>Input Clarification Ensembling (ICE)</p>
-    </div>
+<ul>
+<li>Fong Clement Vo – Quantile Risk Control</li>
+<li>Brooklyn Pagaza – Sampling with Perturbations</li>
+<li>Pranav Singh – Bayesian LoRA</li>
+<li>Calwin Li – Input Clarification Ensembling</li>
+<li>Kening Li – Input Clarification Ensembling</li>
+</ul>
 
 </section>
 
 <footer>
-    © 2026 DSC Capstone Project | UC San Diego
+© 2026 UC San Diego | DSC Capstone Project
 </footer>
 
 </body>
