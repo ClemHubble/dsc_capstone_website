@@ -75,14 +75,9 @@
             border-radius: 5px;
         }
 
-        details {
-            margin-top: 10px;
-        }
-
         .team-member {
             margin-bottom: 20px;
         }
-
     </style>
 </head>
 <body>
@@ -103,7 +98,7 @@
     <h3>Understanding Confidence Across Multiple-Choice, Open-Ended, and Active Reasoning Tasks</h3>
 
     <p>
-        Fong Clement Vo • Brooklyn Pagaza • Pranav Singh • Calwin Li
+        Fong Clement Vo • Brooklyn Pagaza • Pranav Singh • Calwin Li • Kening Li
     </p>
 
     <a href="https://github.com/ps1526/dsc_capstone_project" class="button">
@@ -116,13 +111,32 @@
     <h2>Introduction</h2>
 
     <h3>Why Does LLM Uncertainty Matter?</h3>
-    <p>[Brief motivation paragraph placeholder]</p>
+    <p>
+        Large Language Models (LLMs) are increasingly deployed in high-stakes settings such as healthcare,
+        finance, education, and policy analysis. Despite strong performance, their probabilistic nature means
+        that high confidence does not always imply correctness. Hallucinations, calibration errors, and
+        overconfident reasoning create real-world risks. Robust uncertainty estimation is therefore essential
+        for safe deployment.
+    </p>
 
     <h3>Problem Statement</h3>
-    <p>[What gap are we addressing?]</p>
+    <p>
+        While many uncertainty quantification (UQ) techniques exist, most were designed for standard
+        classification tasks and have not been systematically evaluated across diverse LLM workloads.
+        In particular, it remains unclear how uncertainty behaves across:
+        (1) multiple-choice benchmarks,
+        (2) open-ended generation tasks, and
+        (3) multi-step active reasoning environments.
+    </p>
 
     <h3>Our Approach</h3>
-    <p>[Short overview of the four uncertainty methods]</p>
+    <p>
+        We conduct a unified empirical study of four complementary UQ methods:
+        Quantile Risk Control (QRC), Sampling with Perturbations (SPUQ),
+        Bayesian Low-Rank Adaptation (BLoB), and Input Clarification Ensembling (ICE).
+        We evaluate calibration, confidence concentration, and robustness across
+        multiple task formats and datasets.
+    </p>
 </section>
 
 <!-- METHODS -->
@@ -131,31 +145,51 @@
 
     <h3>Datasets</h3>
     <ul>
-        <li>Multiple Choice Benchmarks</li>
-        <li>Open-Ended Question Answering</li>
-        <li>Active Reasoning (AR-Bench)</li>
+        <li><strong>Multiple Choice Benchmarks:</strong> ARC-Easy, ARC-Challenge, and OpenQA.</li>
+        <li><strong>Open-Ended Question Answering:</strong> TruthfulQA and TriviaQA.</li>
+        <li><strong>Active Reasoning (AR-Bench):</strong> Detective Cases, Situational Puzzles, and Guessing Numbers.</li>
     </ul>
 
     <h3>Uncertainty Quantification Techniques</h3>
 
     <div class="method-box">
         <h4>Quantile Risk Control (QRC)</h4>
-        <p>[Top-quantile confidence evaluation]</p>
+        <p>
+            QRC evaluates whether a model’s most confident predictions are truly reliable.
+            It analyzes the upper tail (top 10%) of the confidence distribution and reports:
+            QRC90 (accuracy within top 10%), CVaR90 (mean confidence in top quantile),
+            and EC90 (calibration error among high-confidence predictions).
+        </p>
     </div>
 
     <div class="method-box">
-        <h4>Sampling with Perturbation (SPUQ)</h4>
-        <p>[Prompt perturbation and aggregation]</p>
+        <h4>Sampling with Perturbations (SPUQ)</h4>
+        <p>
+            SPUQ measures robustness by applying controlled perturbations to prompts
+            (paraphrasing, dummy tokens, system message changes).
+            Uncertainty is estimated by observing variability across perturbed responses.
+            Metrics include Expected Calibration Error (ECE), NLL, and Brier score.
+        </p>
     </div>
 
     <div class="method-box">
         <h4>Bayesian LoRA (BLoB)</h4>
-        <p>[Weight sampling and predictive entropy]</p>
+        <p>
+            BLoB treats LoRA adapter weights as random variables with Gaussian or Laplace priors.
+            At inference time, multiple weight samples are drawn and predictive uncertainty
+            is estimated from output dispersion. This captures epistemic uncertainty
+            beyond deterministic decoding.
+        </p>
     </div>
 
     <div class="method-box">
         <h4>Input Clarification Ensembling (ICE)</h4>
-        <p>[Clarification-based uncertainty decomposition]</p>
+        <p>
+            ICE generates clarification variants of a question, answers each independently,
+            and aggregates the variability across responses.
+            This decomposes uncertainty induced by ambiguity in natural language inputs
+            and provides calibration metrics including ECE and accuracy.
+        </p>
     </div>
 
 </section>
@@ -165,16 +199,13 @@
     <h2>Results</h2>
 
     <h3>Calibration Performance</h3>
-    <p>[Placeholder for plots]</p>
+    <p></p>
 
     <h3>Active Reasoning Analysis</h3>
-    <p>[Placeholder for AR-Bench results]</p>
+    <p></p>
 
     <h3>Key Findings</h3>
     <ul>
-        <li>[Finding 1]</li>
-        <li>[Finding 2]</li>
-        <li>[Finding 3]</li>
     </ul>
 </section>
 
@@ -182,12 +213,19 @@
 <section id="conclusion">
     <h2>Conclusion</h2>
 
-    <p>[Impact and implications]</p>
+    <p>
+        Our study highlights a clear trade-off between accuracy and calibration
+        across uncertainty quantification techniques. Performance varies significantly
+        depending on task format, with multi-step active reasoning tasks exhibiting
+        greater instability than static QA benchmarks. Reliable uncertainty estimation
+        is therefore task-dependent and essential for safe deployment of LLMs.
+    </p>
 
     <h3>Future Work</h3>
     <ul>
-        <li>[Scaling to larger models]</li>
-        <li>[Improved calibration methods]</li>
+        <li>Extend evaluation to larger frontier models.</li>
+        <li>Model full multi-step reasoning pipelines instead of single-turn evaluation.</li>
+        <li>Develop computationally efficient Bayesian calibration techniques.</li>
     </ul>
 </section>
 
@@ -202,7 +240,7 @@
 
     <div class="team-member">
         <h4>Brooklyn Pagaza</h4>
-        <p>Sampling with Perturbation (SPUQ)</p>
+        <p>Sampling with Perturbations (SPUQ)</p>
     </div>
 
     <div class="team-member">
