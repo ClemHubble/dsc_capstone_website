@@ -6,91 +6,89 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    line-height: 1.6;
-    scroll-behavior: smooth;
-    color: #222;
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+line-height:1.6;
+scroll-behavior:smooth;
+color:#222;
 }
 
-nav {
-    position: fixed;
-    width: 100%;
-    background: #0b1e3d;
-    padding: 14px 0;
-    z-index: 1000;
-    text-align: center;
+nav{
+position:fixed;
+width:100%;
+background:#0b1e3d;
+padding:14px 0;
+z-index:1000;
+text-align:center;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 18px;
-    font-size: 14px;
+nav a{
+color:white;
+text-decoration:none;
+margin:0 18px;
+font-size:14px;
 }
 
-nav a:hover {
-    color: #ffcd00;
+nav a:hover{
+color:#ffcd00;
 }
 
-section {
-    padding: 110px 10%;
+section{
+padding:110px 10%;
 }
 
-.hero {
-    background: #f5f7fa;
-    text-align: center;
-    padding-top: 150px;
+.hero{
+background:#f5f7fa;
+text-align:center;
+padding-top:150px;
 }
 
-h1, h2 {
-    margin-bottom: 20px;
+h1,h2{
+margin-bottom:20px;
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px 5px;
-    background: #0b1e3d;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+.button{
+display:inline-block;
+padding:10px 20px;
+margin:10px 5px;
+background:#0b1e3d;
+color:white;
+text-decoration:none;
+border-radius:5px;
 }
 
-.button:hover {
-    background: #ffcd00;
-    color: black;
+.button:hover{
+background:#ffcd00;
+color:black;
 }
 
-.placeholder {
-    background: #e0e0e0;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 30px 0;
-    font-weight: bold;
-    color: #555;
+.image{
+width:100%;
+max-width:750px;
+margin:30px auto;
+display:block;
 }
 
-.method-box {
-    margin-bottom: 40px;
+.method{
+margin-bottom:40px;
 }
 
-footer {
-    background: #0b1e3d;
-    color: white;
-    text-align: center;
-    padding: 20px;
+footer{
+background:#0b1e3d;
+color:white;
+text-align:center;
+padding:20px;
 }
 
-details {
-    margin-top: 10px;
-    background: #f4f4f4;
-    padding: 10px;
-    border-radius: 5px;
+details{
+margin-top:10px;
+background:#f4f4f4;
+padding:10px;
+border-radius:5px;
 }
+
 </style>
 </head>
 
@@ -99,187 +97,240 @@ details {
 <nav>
 <a href="#home">Home</a>
 <a href="#problem">Why This Matters</a>
-<a href="#approach">Our Approach</a>
+<a href="#datasets">Datasets</a>
+<a href="#methods">Methods</a>
 <a href="#results">Results</a>
-<a href="#impact">Impact</a>
+<a href="#conclusion">Conclusion</a>
 <a href="#team">Team</a>
 </nav>
 
-<!-- HERO -->
 <section id="home" class="hero">
-<h1>Can We Trust AI When It Sounds Confident?</h1>
-<h3>Quantifying Uncertainty in Large Language Models</h3>
+
+<h1>Quantifying Uncertainty in Large Language Models</h1>
+
+<h3>Understanding when AI systems should trust their own answers</h3>
 
 <p>
-Large language models often sound certain — even when they’re wrong.
-We study how to measure and improve their reliability.
+Large language models (LLMs) are powerful tools that can generate fluent and informative responses across a wide range of tasks. However, these models can sometimes produce incorrect answers while appearing highly confident. Our project explores how to measure and understand the uncertainty behind these predictions.
 </p>
 
 <a href="https://github.com/ps1526/dsc_capstone_project/tree/blob" class="button">
-View Code on GitHub
+View Code
 </a>
 
 <a href="#" class="button">
-Full Report (Coming Soon)
+Project Report (Coming Soon)
 </a>
 
 <p>
 Fong Clement Vo • Brooklyn Pagaza • Pranav Singh • Calwin Li • Kening Li  
-UC San Diego – DSC Capstone 2026
+<br>
+UC San Diego – Data Science Capstone
 </p>
+
 </section>
 
-<!-- WHY THIS MATTERS -->
 <section id="problem">
+
 <h2>Why This Matters</h2>
 
 <p>
-AI systems like ChatGPT are increasingly used in education, healthcare,
-finance, and legal settings. But these models can confidently generate
-incorrect information — a phenomenon known as hallucination.
+As large language models are increasingly deployed in real-world applications such as education, finance, and healthcare, understanding their reliability becomes critical. While these systems often perform impressively, their probabilistic nature means they can still produce incorrect answers.
 </p>
 
 <p>
-If AI is going to assist in high-stakes decisions, it must know when it might be wrong.
-Our project asks a simple but critical question:
+A key challenge is that language models may appear confident even when they are wrong. This makes it difficult for users to determine when a model’s output should be trusted. Quantifying uncertainty helps identify when models are likely to make reliable predictions and when caution is required.
 </p>
 
-<h3>How can we measure how uncertain a language model really is?</h3>
+<img src="images/llm_capability_growth.png" class="image">
 
-<div class="placeholder">
-[ Illustration: Overconfident AI vs Calibrated AI ]
-</div>
+<p>
+In this project, we analyze several uncertainty quantification techniques and evaluate their performance across multiple types of tasks, including multiple-choice question answering, open-ended responses, and interactive reasoning problems.
+</p>
 
 </section>
 
-<!-- APPROACH -->
-<section id="approach">
-<h2>Our Approach</h2>
+<section id="datasets">
+
+<h2>Datasets</h2>
 
 <p>
-We evaluated four different uncertainty quantification techniques
-across three types of tasks:
+To evaluate how uncertainty behaves across different problem types, we tested models on several benchmark datasets.
 </p>
 
 <ul>
-<li>✔ Multiple-choice question answering</li>
-<li>✔ Open-ended text generation</li>
-<li>✔ Multi-step reasoning problems</li>
+
+<li><b>Multiple Choice Question Answering</b>
+<ul>
+<li>ARC Easy</li>
+<li>ARC Challenge</li>
+<li>OpenQA</li>
+</ul>
+</li>
+
+<li><b>Open-Ended Question Answering</b>
+<ul>
+<li>TriviaQA</li>
+<li>TruthfulQA</li>
+</ul>
+</li>
+
+<li><b>Active Reasoning Tasks</b>
+<ul>
+<li>Detective Cases</li>
+<li>Situational Puzzles</li>
+<li>Guessing Numbers</li>
+</ul>
+</li>
+
 </ul>
 
-<h3>1. Quantile Risk Control (QRC)</h3>
-<div class="method-box">
 <p>
-Do a model’s most confident answers tend to be correct?
-QRC focuses on the top 10% most confident predictions
-and checks whether that confidence is justified.
+These datasets represent increasingly complex reasoning environments, allowing us to study how uncertainty methods behave across different levels of task difficulty and answer structure.
 </p>
-
-<details>
-<summary>Technical Details</summary>
-We compute QRC90 (accuracy among top 10%), CVaR90 (mean confidence),
-and EC90 (calibration error among high-confidence predictions).
-</details>
-</div>
-
-<h3>2. Sampling with Perturbations (SPUQ)</h3>
-<div class="method-box">
-<p>
-What happens if we slightly rephrase the question?
-If the answer changes dramatically, the model may be uncertain.
-</p>
-
-<details>
-<summary>Technical Details</summary>
-We apply paraphrasing, dummy tokens, and system-message variations
-and measure variability across outputs.
-</details>
-</div>
-
-<h3>3. Bayesian LoRA (BLoB)</h3>
-<div class="method-box">
-<p>
-Instead of treating model weights as fixed,
-we treat them as probabilistic.
-This captures deeper uncertainty in the model’s parameters.
-</p>
-
-<details>
-<summary>Technical Details</summary>
-We sample LoRA adapter weights from Gaussian or Laplace distributions
-and measure predictive dispersion.
-</details>
-</div>
-
-<h3>4. Input Clarification Ensembling (ICE)</h3>
-<div class="method-box">
-<p>
-Sometimes uncertainty comes from ambiguity in the question itself.
-ICE generates clarification variants and aggregates the responses.
-</p>
-
-<details>
-<summary>Technical Details</summary>
-We measure variability across clarification-based responses
-and compute calibration metrics such as ECE.
-</details>
-</div>
 
 </section>
 
-<!-- RESULTS -->
+<section id="methods">
+
+<h2>Uncertainty Quantification Methods</h2>
+
+<p>
+We evaluate four approaches to estimating uncertainty in large language models.
+Each method captures a different signal indicating when model predictions may be unreliable.
+</p>
+
+<div class="method">
+
+<h3>Quantile Risk Control (QRC)</h3>
+
+<p>
+Quantile Risk Control evaluates whether a model’s most confident predictions are actually reliable. Instead of evaluating all outputs equally, QRC focuses on the highest-confidence predictions and measures how often those predictions are correct.
+</p>
+
+<details>
+<summary>Technical Details</summary>
+
+<ul>
+<li>QRC90 – accuracy among the top 10% most confident predictions</li>
+<li>CVaR90 – mean confidence within that quantile</li>
+<li>ECE90 – calibration error restricted to high-confidence predictions</li>
+</ul>
+
+</details>
+
+</div>
+
+<div class="method">
+
+<h3>Sampling with Perturbations (SPUQ)</h3>
+
+<p>
+This method estimates uncertainty by introducing small variations to the input prompt. If the model produces significantly different outputs when the prompt is slightly modified, it suggests that the model may be uncertain about its answer.
+</p>
+
+<details>
+<summary>Technical Details</summary>
+
+<ul>
+<li>Prompt paraphrasing</li>
+<li>Adding dummy tokens</li>
+<li>Modifying system prompts</li>
+</ul>
+
+Output variability is used as a signal for uncertainty.
+
+</details>
+
+</div>
+
+<div class="method">
+
+<h3>Bayesian LoRA (BLoB)</h3>
+
+<p>
+Bayesian LoRA introduces probabilistic modeling into parameter-efficient fine-tuning. Instead of using a single fixed set of weights, the model samples multiple weight configurations and measures how predictions vary across them.
+</p>
+
+<details>
+<summary>Technical Details</summary>
+
+LoRA adapter weights are treated as random variables sampled from Gaussian or Laplace distributions. Prediction variance across samples is used to estimate uncertainty.
+
+</details>
+
+</div>
+
+<div class="method">
+
+<h3>Input Clarification Ensembling (ICE)</h3>
+
+<p>
+ICE addresses uncertainty caused by ambiguous questions. The method generates clarification prompts that interpret the original question in slightly different ways and aggregates the resulting answers.
+</p>
+
+<details>
+<summary>Technical Details</summary>
+
+Model responses to clarification prompts are combined to evaluate confidence and calibration using metrics such as Expected Calibration Error (ECE).
+
+</details>
+
+</div>
+
+<img src="images/uq_methods_diagram.png" class="image">
+
+</section>
+
 <section id="results">
+
 <h2>Results</h2>
 
 <p>
-(Plots and quantitative findings will be added here.)
+Our experiments evaluate how different uncertainty quantification methods perform across multiple datasets and reasoning settings. We measure both predictive accuracy and calibration quality to understand when model confidence aligns with correctness.
 </p>
 
-<div class="placeholder">
-[ Calibration Plot Placeholder ]
-</div>
+<img src="images/mcq_results.png" class="image">
 
-<div class="placeholder">
-[ Active Reasoning Performance Placeholder ]
-</div>
+<img src="images/openqa_results.png" class="image">
+
+<img src="images/active_reasoning_results.png" class="image">
 
 <p>
-We will summarize key numerical findings once final evaluations are complete.
+Overall, the results reveal important differences in how uncertainty behaves across task types. Multiple-choice tasks tend to produce more stable predictions, while open-ended and active reasoning tasks introduce greater variability and uncertainty.
 </p>
 
 </section>
 
-<!-- IMPACT -->
-<section id="impact">
-<h2>Impact & Takeaways</h2>
+<section id="conclusion">
 
-<p>
-Our experiments show that uncertainty behaves differently
-depending on the type of task.
-Models tend to be less calibrated in multi-step reasoning tasks
-compared to static question answering.
-</p>
+<h2>Key Takeaways</h2>
 
-<p>
-There is often a trade-off between accuracy and calibration —
-improving one can degrade the other.
-</p>
+<ul>
 
-<p>
-The key takeaway: reliable uncertainty estimation is essential
-before deploying language models in high-risk environments.
-</p>
+<li>
+Multiple-choice question answering produces the most stable and predictable model behavior.
+</li>
+
+<li>
+Open-ended question answering introduces greater variability due to the large possible answer space.
+</li>
+
+<li>
+Active reasoning tasks present the greatest challenge for uncertainty estimation because models must dynamically gather information before producing a final answer.
+</li>
+
+<li>
+Reliable uncertainty estimation is essential for deploying language models safely in real-world applications.
+</li>
+
+</ul>
 
 </section>
 
-<!-- TEAM -->
 <section id="team">
-<h2>Meet the Team</h2>
 
-<p>
-This project was completed as part of the UC San Diego
-Data Science Capstone Program.
-</p>
+<h2>Team</h2>
 
 <ul>
 <li>Fong Clement Vo – Quantile Risk Control</li>
@@ -292,7 +343,9 @@ Data Science Capstone Program.
 </section>
 
 <footer>
-© 2026 UC San Diego | DSC Capstone Project
+
+UC San Diego Data Science Capstone Project
+
 </footer>
 
 </body>
